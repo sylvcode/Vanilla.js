@@ -51,12 +51,15 @@ li
   margin: 0;
   padding: 0;
   display: block;
+  text-transform: capitalize;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 16px;
   font-weight: 100;
   text-align: left;
   
 }
+
+
 
 .overview {
   margin-bottom: 20px;

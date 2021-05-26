@@ -12,6 +12,8 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="style.css" />
     <title>Weather App</title>
   </head>
@@ -20,14 +22,13 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>
-              Frankfurt am Main
-            </h1>
+            <h1 id="city"></h1>
             <ul>
               <li>
-                Friday
+                last updated:
+                <span id="date"></span>
               </li>
-              <li>
+              <li id="description">
                 clear
               </li>
             </ul>
@@ -36,8 +37,11 @@
             <div class="col-md-6">
               <!-- So I can select the image from the class temperature-->
               <div class="clearfix weather-temperature">
-                <strong>12</strong>
-                <small>°C | °F</small>
+                <strong id="temperature"></strong>
+                <small class="units">
+                  °C |
+                  <a href="#">°F</a>
+                </small>
 
                 <img src="cloudy.png" alt="clear img" class="float-left" />
                 <div class="float-left"></div>
@@ -46,20 +50,21 @@
             <div class="col-md-6">
               <ul>
                 <li>
-                  Precipitation: 0%
+                  Humidity:
+                  <span id="humidity"></span>
+                  %
                 </li>
                 <li>
-                  Humidity: 0%
-                </li>
-                <li>
-                  Wind: 2km/h
+                  Wind:
+                  <span id="wind"></span>
+                  km/h
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <h3>
-          Open-source code by Sylvia 💜
+          Open-source coded with 💜 by Sylvia
         </h3>
       </div>
     </div>
