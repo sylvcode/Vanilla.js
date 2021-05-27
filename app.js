@@ -24,6 +24,7 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector('#humidity')
   let windElement = document.querySelector('#wind')
   let dateElement = document.querySelector('#date')
+  let iconElement = document.querySelector('#icon')
 
   // Inner HTML stuff
   descriptionElement.innerHTML = response.data.weather[0].description
@@ -33,11 +34,16 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed)
   // get the current date and time
   dateElement.innerHTML = formatDate(response.data.dt * 1000)
+  iconElement.setAttribute(
+    'src',
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+  )
+  iconElement.setAttribute('alt', response.data.weather[0].description)
 }
 
 // To get current weather information
 let apiKey = '43700ee73704d4a7a92f7aa11e986149'
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=FRankfurt&appid=${apiKey}&units=metric`
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Frankfurt&appid=${apiKey}&units=metric`
 
 console.log(apiUrl)
 axios.get(apiUrl).then(displayTemperature)
