@@ -27,8 +27,9 @@ function displayTemperature(response) {
   let iconElement = document.querySelector('#icon')
 
   // Inner HTML stuff
-  descriptionElement.innerHTML = response.data.weather[0].description
+
   cityElement.innerHTML = response.data.name
+  descriptionElement.innerHTML = response.data.weather[0].description
   temperatureElement.innerHTML = Math.round(response.data.main.temp)
   humidityElement.innerHTML = response.data.main.humidity
   windElement.innerHTML = Math.round(response.data.wind.speed)
@@ -41,9 +42,23 @@ function displayTemperature(response) {
   iconElement.setAttribute('alt', response.data.weather[0].description)
 }
 
-// To get current weather information
-let apiKey = '43700ee73704d4a7a92f7aa11e986149'
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Frankfurt&appid=${apiKey}&units=metric`
+// These are moved into one function to do an ajax call
+function search(city) {
+  // To get current weather information
+  let apiKey = '43700ee73704d4a7a92f7aa11e986149'
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+  axios.get(apiUrl).then(displayTemperature)
+}
 
-console.log(apiUrl)
-axios.get(apiUrl).then(displayTemperature)
+// event listener, to prevent the page from reloading
+function handleSubmit(event) {
+  event.preventDefault()
+  let cityInputElement = document.querySelector('#city-input')
+  // when we submit the form
+  search(cityInputElement.value)
+}
+
+search('Frankfurt')
+// Search formid til tess ad leita af city
+let form = document.querySelector('#search-form')
+form.addEventListener('submit', handleSubmit)

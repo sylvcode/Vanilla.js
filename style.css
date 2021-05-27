@@ -85,3 +85,17 @@ small  {
   font-size: 34px;
 }
 
+ .btn-outline-light {
+   background: #fff;
+   color: #6D64FD;
+   opacity: 0.7;
+   box-shadow: 3px 3px 3px #a8adff;
+ }
+
+ .btn-outline-light:hover {
+   background: #fff;
+   color: #f03861;
+   opacity: 0.7;
+   box-shadow: 3px 3px 3px #a8adff;
+   transform: scale(1.05);
+ }
