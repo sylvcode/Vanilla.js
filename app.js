@@ -26,6 +26,8 @@ function displayTemperature(response) {
   let dateElement = document.querySelector('#date')
   let iconElement = document.querySelector('#icon')
 
+  celsiusTemperature = response.data.main.temp
+
   // Inner HTML stuff
 
   cityElement.innerHTML = response.data.name
@@ -42,6 +44,7 @@ function displayTemperature(response) {
   iconElement.setAttribute('alt', response.data.weather[0].description)
 }
 
+//function variables
 // These are moved into one function to do an ajax call
 function search(city) {
   // To get current weather information
@@ -58,7 +61,32 @@ function handleSubmit(event) {
   search(cityInputElement.value)
 }
 
-search('Frankfurt')
+function displayFahrenheitTemperature(event) {
+  event.preventDefault()
+  let temperatureElement = document.querySelector('#temperature')
+  //remove the active class celsius
+  celsiusLink.classList.remove('active')
+  fahrenheitLink.classList.add('active')
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature)
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault()
+  celsiusLink.classList.add('active')
+  fahrenheitLink.classList.remove('active')
+  let temperatureElement = document.querySelector('#temperature')
+  temperatureElement.innerHTML = Math.round(celsiusTemperature)
+}
+let celsiusTemperature = null
+//Global variables
 // Search formid til tess ad leita af city
 let form = document.querySelector('#search-form')
 form.addEventListener('submit', handleSubmit)
+
+let fahrenheitLink = document.querySelector('#fahrenheit-link')
+fahrenheitLink.addEventListener('click', displayFahrenheitTemperature)
+
+let celsiusLink = document.querySelector('#celsius-link')
+celsiusLink.addEventListener('click', displayCelsiusTemperature)
+search('Frankfurt')
