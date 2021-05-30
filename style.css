@@ -21,15 +21,13 @@ h3 {
   sans-serif;
   font-size: 16px;
   font-weight: 100;
-
-
 }
 
 .weather-app-wrapper {
-
  max-width: 600px;
  margin: 30px auto;
 }
+
 .weather-app {
   max-width: 600px;
   margin: 30px auto;
@@ -72,10 +70,9 @@ li
 
 .weather-temperature strong {
   color: #6D64FD;
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 600;
   
- 
 }
 
   small  {
@@ -83,7 +80,6 @@ li
    position: relative;
    top: -10px;
 }
-
 
  .btn-outline-light {
    background: #fff;
@@ -100,13 +96,21 @@ li
    transform: scale(1.05);
  }
 
- 
  .weather-temperature .active {
      color: rgb(33, 33, 33);
-     cursor:default
-
+     cursor:default;
+     text-decoration: none;
+    
  }
 
  .weather-app {
     box-shadow: 3px 3px 3px #a8adff;
+ }
+ .weather-temperature .units {
+   position: relative;
+   font-size: 16px;
+   top: -24px;
+ }
+ .weather-temperature .active:hover {
+   text-decoration: none;
  }
