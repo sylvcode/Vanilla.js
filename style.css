@@ -11,6 +11,11 @@ h1 {
   
 }
 
+h2 {
+   color: #6D64FD;
+   font-size: 18px;
+}
+
 h3 {
   font-family: 'Lucida Sans',
   'Lucida Sans Regular',
@@ -114,3 +119,4 @@ li
  .weather-temperature .active:hover {
    text-decoration: none;
  }
+
