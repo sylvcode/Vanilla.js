@@ -15,6 +15,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <link rel="stylesheet" href="style.css" />
+
     <title>Weather App</title>
   </head>
   <body>
@@ -43,6 +44,7 @@
           </form>
           <div class="overview">
             <h1 id="city"></h1>
+            <span class="icon"></span>
             <ul>
               <li>
                 <h2 id="date"></h2>
@@ -87,135 +89,7 @@
               </ul>
             </div>
           </div>
-          <div class="weather-forecast">
-            <div class="row">
-              <div class="col-2">
-                <div class="weather-forecast-date">
-                  Tue
-                </div>
-                <img
-                  src="https://openweathermap.org/img/wn/10d@2x.png"
-                  class="float-left"
-                  alt="weather"
-                  id="icon"
-                  width="34"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">
-                    18
-                  </span>
-                  <span class="weather-forecast-temperature-min">
-                    12
-                  </span>
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div class="weather-forecast-date">
-                  Wed
-                </div>
-                <img
-                  src="https://openweathermap.org/img/wn/10d@2x.png"
-                  class="float-left"
-                  alt="weather"
-                  id="icon"
-                  width="34"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">
-                    18
-                  </span>
-                  <span class="weather-forecast-temperature-min">
-                    12
-                  </span>
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div class="weather-forecast-date">
-                  Thu
-                </div>
-                <img
-                  src="https://openweathermap.org/img/wn/10d@2x.png"
-                  class="float-left"
-                  alt="weather"
-                  id="icon"
-                  width="34"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">
-                    18
-                  </span>
-                  <span class="weather-forecast-temperature-min">
-                    12
-                  </span>
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div class="weather-forecast-date">
-                  Fri
-                </div>
-                <img
-                  src="https://openweathermap.org/img/wn/10d@2x.png"
-                  class="float-left"
-                  alt="weather"
-                  id="icon"
-                  width="34"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">
-                    18
-                  </span>
-                  <span class="weather-forecast-temperature-min">
-                    12
-                  </span>
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div class="weather-forecast-date">
-                  Sat
-                </div>
-                <img
-                  src="https://openweathermap.org/img/wn/10d@2x.png"
-                  class="float-left"
-                  alt="weather"
-                  id="icon"
-                  width="34"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">
-                    18
-                  </span>
-                  <span class="weather-forecast-temperature-min">
-                    12
-                  </span>
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div class="weather-forecast-date">
-                  Sun
-                </div>
-                <img
-                  src="https://openweathermap.org/img/wn/10d@2x.png"
-                  class="float-left"
-                  alt="weather"
-                  id="icon"
-                  width="34"
-                />
-                <div class="weather-forecast-temperature">
-                  <span class="weather-forecast-temperature-max">
-                    18
-                  </span>
-                  <span class="weather-forecast-temperature-min">
-                    12
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="weather-forecast" id="forecast"></div>
         </div>
         <h3>
           <a href="https://github.com/sylviaantons/vanilla.js">Open-source</a>
