@@ -1,33 +1,37 @@
-let now = new Date()
+function formatDate(datetime) {
+  let apinow = new Date(datetime)
+  let date = apinow.getDate()
+  let hours = apinow.getHours()
+  let minutes = apinow.getMinutes()
+  if (hours < 10) {
+    hours = `0${hours}`
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
+  let year = apinow.getFullYear()
 
-let h2 = document.querySelector('h2')
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  let day = days[apinow.getDay()]
 
-let date = now.getDate()
-let hours = now.getHours()
-let minutes = now.getMinutes()
-let year = now.getFullYear()
+  let months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  let month = months[apinow.getMonth()]
 
-let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-let day = days[now.getDay()]
-
-let months = [
-  'Jan',
-  'Feb',
-  'March',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-]
-let month = months[now.getMonth()]
-
-h2.innerHTML = `${month} ${date}, ${day}, ${hours}:${minutes}`
-console.log(h2.innerHTML)
+  return `${month} ${date}, ${day}, ${hours}:${minutes}`
+}
 
 function displayTemperature(response) {
   console.log(response.data)
