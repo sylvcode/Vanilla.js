@@ -36,7 +36,6 @@ https://wpt.fyi/results/css/css-text-decor */
  }
 
   
-
 h2 {
    color: #6D64FD;
    font-size: 18px;
@@ -165,7 +164,8 @@ li
 
 }
 
-.overview li strong{
+li strong, a
+ {
   color: #6D64FD;
   
 }
@@ -174,5 +174,59 @@ li
   background: #fff;
   opacity: 0.7;
   box-shadow: 3px 3px 3px #a8adff;
+}
+
+img:hover,
+icon:hover {
+  transform: scale(1.06);
+}
+
+
+.cloud {
+  --cloud-colour: #a8adff;
+  --cloud-factor: 1rem;
+  --cloud-opacity: 0.4;
+  position: absolute;
+  top: 7%;
+  left: calc(-20 * var(--cloud-factor));
+  right: auto;
+  background-color: var(--cloud-colour);
+  opacity: var(--cloud-opacity);
+  width: calc(20 * var(--cloud-factor));
+  height: calc(6 * var(--cloud-factor));
+  border-radius: calc(3 * var(--cloud-factor));
+  animation: cloudFloat 30s linear infinite;
+}
+
+.cloud:before {
+  content: "";
+  position: absolute;
+  left: calc(3.2 * var(--cloud-factor));
+  bottom: calc(3.2 * var(--cloud-factor));
+  background-color: var(--cloud-colour);
+  width: calc(8 * var(--cloud-factor));
+  height: calc(8 * var(--cloud-factor));
+  border-radius: 50%;
+}
+
+.cloud:after {
+  content: "";
+  position: absolute;
+  left: calc(8.7 * var(--cloud-factor));
+  bottom: calc(2.2 * var(--cloud-factor));
+  background-color: var(--cloud-colour);
+  width: calc(7.5 * var(--cloud-factor));
+  height: calc(7.5 * var(--cloud-factor));
+  border-radius: 50%;
+}
+
+@keyframes cloudFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(150vmax, 0, 0);
+  }
 }
 
