@@ -6,12 +6,12 @@ h1 {
  font-size: calc(1em + 2vmin);
  font-weight: 100;
  color: #6D64FD;
-
+--background-color: #fff;
+--stroke-color: #a8adff;
  --x-offset: -0.0625em;
  --y-offset: 0.0625em;
  --stroke: 0.025em;
- --background-color: white;
- --stroke-color: #a8adff;
+ 
 
  text-shadow: var(--x-offset) var(--y-offset) 0px var(--background-color),
 
@@ -117,6 +117,8 @@ li
    color: #6D64FD;
    opacity: 0.7;
    box-shadow: 3px 3px 3px #a8adff;
+   margin-left: -20px;
+   margin-top: -2px;
  }
 
  .btn-outline-light:hover {
@@ -125,6 +127,7 @@ li
    opacity: 0.7;
    box-shadow: 3px 3px 3px #a8adff;
    transform: scale(1.05);
+  
  }
 
  .weather-temperature .active {
