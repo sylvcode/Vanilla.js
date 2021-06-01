@@ -197,8 +197,10 @@ li strong, a
 img {
   animation: swing 3s infinite ease-in-out;
 }
+.container .logo {
+  max-width: 100px;
+  display: block;
+  animation: none;
+  padding-bottom: 10px;
 
-.event {
-  margin: 50px auto;
-  text-align: center;
 }
