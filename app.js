@@ -126,7 +126,10 @@ function search(city) {
   // To get current weather information
   let apiKey = '43700ee73704d4a7a92f7aa11e986149'
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-  axios.get(apiUrl).then(displayTemperature)
+  axios
+    .get(apiUrl)
+    .then(displayTemperature)
+    .catch(() => alert(`${city} is not a City`))
 }
 
 // event listener, to prevent the page from reloading
