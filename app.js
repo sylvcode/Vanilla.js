@@ -9,7 +9,6 @@ function formatDate(datetime) {
   if (minutes < 10) {
     minutes = `0${minutes}`
   }
-  let year = apinow.getFullYear()
 
   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   let day = days[apinow.getDay()]
