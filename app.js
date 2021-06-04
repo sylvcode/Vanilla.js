@@ -83,7 +83,7 @@ function displayForecast(response) {
 }
 
 async function getForecast() {
-  let apiUrl = 'http://api.neurocode.ai/v1/weather'
+  let apiUrl = 'https://api.neurocode.ai/v1/weather'
   const { city } = await axios
     .get('https://api.neurocode.ai/v1/location')
     .then(({ data }) => data)
