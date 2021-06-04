@@ -83,14 +83,16 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML
 }
 
-function getForecast(coordinates) {
-  console.log(coordinates)
-  let apiKey = '43700ee73704d4a7a92f7aa11e986149'
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lat}&appid=${apiKey}&units=metric`
-  axios.get(apiUrl).then(displayForecast)
+async function getForecast() {
+  let apiUrl = 'http://api.neurocode.ai/v1/weather'
+  const { city } = await axios
+    .get('https://api.neurocode.ai/v1/location')
+    .then(({ data }) => data)
+
+  return axios.get(apiUrl).then((resp) => displayTemperature(city, resp))
 }
 
-function displayTemperature(response) {
+async function displayTemperature(city, response) {
   let temperatureElement = document.querySelector('#temperature')
   let cityElement = document.querySelector('#city')
   let descriptionElement = document.querySelector('#description')
@@ -99,34 +101,33 @@ function displayTemperature(response) {
   let dateElement = document.querySelector('#date')
   let iconElement = document.querySelector('#icon')
 
-  celsiusTemperature = response.data.main.temp
+  celsiusTemperature = response.data.current.temp
 
   // Inner HTML stuff
 
-  cityElement.innerHTML = response.data.name
-  descriptionElement.innerHTML = response.data.weather[0].description
-  temperatureElement.innerHTML = Math.round(response.data.main.temp)
-  humidityElement.innerHTML = response.data.main.humidity
-  windElement.innerHTML = Math.round(response.data.wind.speed)
+  cityElement.innerHTML = city
+  descriptionElement.innerHTML = response.data.current.weather[0].description
+  temperatureElement.innerHTML = Math.round(response.data.current.temp)
+  humidityElement.innerHTML = response.data.current.humidity
+  windElement.innerHTML = Math.round(response.data.current.wind_speed)
 
   // get the current date and time
-  dateElement.innerHTML = formatDate(response.data.dt * 1000)
+  dateElement.innerHTML = formatDate(response.data.current.dt * 1000)
   iconElement.setAttribute(
     'src',
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+    `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`,
   )
-  iconElement.setAttribute('alt', response.data.weather[0].description)
+  iconElement.setAttribute('alt', response.data.current.weather[0].description)
 
-  getForecast(response.data.coord)
+  displayForecast(response)
 }
 
 //function variables
 // These are moved into one function to do an ajax call
 function search(city) {
   // To get current weather information
-  let apiKey = '43700ee73704d4a7a92f7aa11e986149'
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-  axios.get(apiUrl).then(displayTemperature)
+  let apiUrl = `https://api.neurocode.ai/v1/weather?city=${city}`
+  axios.get(apiUrl).then((resp) => displayTemperature(city, resp))
 }
 
 // event listener, to prevent the page from reloading
@@ -168,4 +169,4 @@ fahrenheitLink.addEventListener('click', displayFahrenheitTemperature)
 
 let celsiusLink = document.querySelector('#celsius-link')
 celsiusLink.addEventListener('click', displayCelsiusTemperature)
-search('Frankfurt')
+getForecast()
